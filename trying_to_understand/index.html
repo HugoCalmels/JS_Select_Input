@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      position: relative;
+      height: 100vh;
+    }
+    .container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 11;
+      background-color: white;
+    }
+    .select-container {
+      border: 2px solid black;
+      padding: 1.5rem 3rem;
+      transition: .5s;
+    }
+    .select-container.focus {
+      transition: .25s;
+      border: 4px solid green;
+    }
+    .options-container {
+      border: 2px solid black;
+    }
+    .options-container > *{
+      cursor: pointer;
+      padding: .25rem;
+    }
+    .options-container > *:hover{
+      background: lightblue;
+    padding: .25rem;
+    }
+    .option-element.selected {
+      background: rgb(25, 176, 226);
+  
+    }
+    .option-element.selected:hover {
+      background: rgb(25, 176, 226);
+  
+    }
+    .option-element.keyboard-hover {
+      background: lightblue;
+  
+    }
+    .options-container{
+      display: none;
+    }
+
+    .options-container.show {
+      display: block;
+    }
+
+    .overlay {
+      position :absolute;
+      width :100%;
+      height :100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 10;
+     
+      opacity: 0;
+      transition: all .5s;
+   
+    }
+    .overlay.show {
+      opacity: 1;
+ 
+      transition: all .5s;
+      
+    }
+    .another-container {
+      position: absolute;
+      z-index: 12;
+      border: 4px solid black;
+      left: 0;
+      pointer-events: auto;
+      width: 400px;
+      background: purple;
+      transition: all .5s;
+    }
+
+    .another-container.lock{
+      pointer-events: none;
+      filter: blur(.15rem);
+    }
+    .another-container img {
+      object-fit: cover;
+      width: 100%;
+      
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container"></div>
+
+
+  <div class="another-container">
+    <img src="https://picsum.photos/200/300">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nihil odit doloremque id incidunt quam illum tempore corporis. Laborum ducimus ipsa repellendus earum facilis ipsum?</p>
+    <button class="button-click-me">click me!</button>
+  </div>
+
+  <div class="overlay"></div>
+
+  <script src="index.js" type="module"></script>
+</body>
+</html>
